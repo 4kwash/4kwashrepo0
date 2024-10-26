@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Chrome Debug",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:5173",  // Ensure this matches your development server URL
+        "webRoot": "${workspaceFolder}/src",
+        "sourceMaps": true,
+        "trace": true
+      }
+    ]
+  }
+  
