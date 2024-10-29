@@ -3,8 +3,8 @@ import Navbar from './components/Navbar';
 import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
 import Home from '../src/pages/Home';
-import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
+import Reviews from './pages/Testimonial';
 import logo from './assets/logo.png';
 
 import './App.css';
@@ -18,7 +18,7 @@ const App = () => {
       <Navbar logo={logo} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/reviews" element={<Reviews />} />
         <Route path="/service" element={<Services />} />
         <Route path="/services/:serviceid" element={<ServiceDetail />} />
         <Route path="/gallery" element={<Gallery />} />

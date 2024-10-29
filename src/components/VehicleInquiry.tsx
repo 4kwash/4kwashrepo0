@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../css/styles.css'; // Import external CSS
 import '../css/MediaQuery.css'
+const API_END_POINT = "https://server-470044186658.us-central1.run.app";
 
 interface VehicleData {
     make: string;
@@ -53,14 +54,21 @@ const VehicleForm: React.FC = () => {
             message,
         };
 
-        //https://api-4k-1012991611421.us-central1.run.app/send-email
-        fetch('http://localhost:8080/api/send-email', {
+        fetch(`${API_END_POINT}/send-email`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(vehicleData),
         })
             .then((response) => response.json())
-            .then(() => alert('Inquiry submitted!'))
+            .then(() => {
+                window.alert('Your inquiry has been submitted successfully!');
+                // Clear form fields
+                setSelectedMake('');
+                setModels([]); // Clear models when make is cleared
+                setSelectedModel('');
+                setSelectedYear('');
+                setMessage('');
+            })
             .catch((error) => console.error('Submission failed:', error));
     };
 

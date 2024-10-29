@@ -1,14 +1,31 @@
+
+.phone-number {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 40px;
+}
+.phone-number p {
+  margin: 20px;
+}
+
 .vehicle-form {
     display: flex;
     flex-direction: column;
     gap: 15px;
     width: 60%;
+    height: fit-content;
+    padding: 1rem;
     max-width: 100%;
-    margin: 0 auto;
+    margin: auto;
     font-size: 1.1em;
     transition: ease-in-out 1s;
+    color: #f5f5f5;
   }
   
+  #greeting {
+    font-size: 1.2rem;
+  }
   .form-group {
     display: flex;
     flex-direction: column;
@@ -17,7 +34,7 @@
   
   label {
     font-weight: bold;
-    color: #333;
+    color: #f7f7f7;
   }
   
   select,
@@ -55,7 +72,48 @@
   /* Vehicle form ends here */
   
   
+  /* reviews */
+  .review-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: center;
+    text-align: center;
+    color: #000;
+    font-size: 1.5rem;
+    
+  }
+
+  .review-profile-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
   
+  .slider-background {
+    background-color: #f0f4f8;
+    padding: 40px 0;
+  }
+  
+  .slider-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .review-slide {
+    text-align: center;
+    padding: 10px;
+  }
+  
+
+
   
   
   /* Service Card Slider Wrapper */
@@ -67,8 +125,11 @@
   
   /* Individual Service Card */
   .service-card {
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
     height: fit-content;
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
     border-radius: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -77,11 +138,16 @@
     padding: 20px;
     transition: transform 0.3s ease;
   }
+  .service-card img {
+    width: 100%;
+    height: 100%;
+  }
   
   
   .service-card h3 {
+    position: absolute;
     margin: 10px 0;
-    color: #000;
+    color: #ffffff;
     font-size: 1.5rem;
   }
   
@@ -188,8 +254,8 @@
 
   /* Gallery Grid */
 .gallery-grid {
-    /* max-width: 80%;
-    margin: auto; */
+    
+    margin: auto; 
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
@@ -199,6 +265,9 @@
   
   /* Gallery Items */
   .gallery-item {
+    max-width: 40%;
+    max-width: 20%;
+    margin: auto;
     position: relative;
     cursor: pointer;
     overflow: hidden;
@@ -644,6 +713,7 @@
   margin-top: 10px;
   flex: 1;
   max-width: 150px; /* Default logo size */
+  cursor: pointer;
 }
 
 .navbar-logo img {
@@ -683,6 +753,51 @@
   display: none;
 }
 
+.services-section2 {
+  background-color: #f5f5f5;
+  padding: 40px 0;
+  height: 500px;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.services-section-text {
+  /* container */
+  align-self: center;
+  max-width: 600px;
+}
+
+.services-section-text h1  {
+  color: #000;
+  text-transform: uppercase;
+  width: fit-content;
+  height: max-content;
+  text-align: center;
+}
+.services-section-text h1 .service-section-icon {
+  display: inline-block;
+  text-align: center;
+  font-size: 1.5rem;
+  color: skyblue;
+
+}
+.services-section-text p {
+  color: #000;
+  max-width: 90%;
+  font-size: 1rem;
+}
+.services-section-image-container {
+  width: 35%;
+  height: 90%;
+  align-self: center;
+}
+.services-section-image-container img {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+}
+
 
 
 
@@ -693,6 +808,7 @@
   .mySwiper {
     width: 100%;
     height: 300px; /* Adjust based on your design */
+    margin-bottom: 200px;
   }
   
   .service-card {
@@ -754,7 +870,7 @@
 }
 
 .contact-us input:focus,
-.contact-us textarea:focus {
+.contact-us textarea:focus { 
   border-color: #007bff;
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
   outline: none;
@@ -841,3 +957,25 @@
     padding: 0.65rem;
   }
 }
+.reviews {
+  padding: 20px;
+}
+
+.review {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.review h2 {
+  text-align: center;
+}
+
+.review h4 {
+  margin: 0;
+}
+
+.review p {
+  margin: 5px 0;
+}
+

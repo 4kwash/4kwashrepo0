@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa'; // Icons for hamburger menu
+import { FaBars, FaTimes, FaPhone } from 'react-icons/fa'; // Icons for hamburger menu
+import { useNavigate } from 'react-router-dom';
 import '../css/styles.css';
 import '../css/MediaQuery.css';
 
@@ -29,6 +30,7 @@ const useScroll = () => {
 const Navbar: React.FC<NavbarProps> = ({ logo }) => {
     const [menuActive, setMenuActive] = useState<boolean>(false);
     const scrolled = useScroll();
+    const navigate = useNavigate();
 
     // Toggle hamburger menu state
     const toggleMenu = () => {
@@ -45,8 +47,12 @@ const Navbar: React.FC<NavbarProps> = ({ logo }) => {
     return (
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
             {/* Logo */}
-            <div className="navbar-logo">
+            <div className="navbar-logo" onClick={() => navigate('/')}>
                 <img src={logo} alt="Logo" />
+            </div>
+            <div className="phone-number">
+                <FaPhone />
+                <p>416-671-9932</p>
             </div>
 
             {/* Hamburger Menu - Only visible on smaller screens */}
@@ -63,7 +69,7 @@ const Navbar: React.FC<NavbarProps> = ({ logo }) => {
             <ul className={`navbar-links ${menuActive ? 'active' : ''}`}>
                 <li><a href="/" className="navbar-link" onClick={handleLinkClick}>Home</a></li>
                 <li><a href="/service" className="navbar-link" onClick={handleLinkClick}>Service</a></li>
-                <li><a href="/contact" className="navbar-link" onClick={handleLinkClick}>Contact</a></li>
+                <li><a href="/reviews" className="navbar-link" onClick={handleLinkClick}>Reviews</a></li>
                 <li><a href="/gallery" className="navbar-link" onClick={handleLinkClick}>Gallery</a></li>
             </ul>
         </nav>

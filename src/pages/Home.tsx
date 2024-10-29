@@ -6,7 +6,7 @@ import { FaArrowRight } from 'react-icons/fa';
 import backgroundImage from '../assets/darkenedbg.png';
 import VehicleForm from '../components/VehicleInquiry';
 import Footer from '../components/Footer';
-import ServiceCardSlider from '../components/ServiceCardSlider';
+// import ServiceCardSlider from '../components/ServiceCardSlider';
 import LocationAndMission from '../components/LocationAndMission';
 import { ImgComparisonSlider } from '@img-comparison-slider/react';
 
@@ -35,9 +35,10 @@ const Home: React.FC = () => {
         display: 'flex',
         justifyContent: 'center', // Align header and form side-by-side in center
         alignItems: 'center',
-       
+        gap: '20%',
         padding: '0 50px',
         boxSizing: 'border-box',
+        
     };
 
     const headerStyle: React.CSSProperties = {
@@ -48,10 +49,9 @@ const Home: React.FC = () => {
 
     const formContainerStyle: React.CSSProperties = {
         backgroundColor: 'rgba(0, 0, 0, 0.7)',
-        padding: '40px',
+        padding: '10px',
         borderRadius: '10px',
-        //this affects the mobile screen 
-        // width: '400px', 
+        
     };
 
     return (
@@ -76,9 +76,9 @@ const Home: React.FC = () => {
             </section>
 
             {/* Service Slider with AOS */}
-            <div data-aos="fade-in">
+            {/* <div data-aos="fade-in">
                 <ServiceCardSlider />
-            </div>
+            </div> */}
 
             <div data-aos="fade-in" className='before-after slider'>
                 <div style={{ textAlign: 'center', padding: '20px' }}>
@@ -88,7 +88,7 @@ const Home: React.FC = () => {
                     <FaArrowRight className='icon' />
                 </div>
 
-                <ImgComparisonSlider data-aos="fade-left" style={{ width: '50%', height: '700px', borderRadius: '50px' }} id='image-slider'>
+                <ImgComparisonSlider data-aos="fade-left" style={{ width: '50%', height: '600px', borderRadius: '50px', marginTop: '200px' }} id='image-slider'>
                     <img slot='second' src={beforeImage} />
                     <img slot='first' src={afterImage} />
                     

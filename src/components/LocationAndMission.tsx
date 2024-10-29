@@ -1,6 +1,6 @@
 import React from 'react';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
-const API_KEY = "AIzaSyAxxPN_i7RI0ETwOzcJrh41mmaZRcAUJeI";
+const API_KEY = "AIzaSyAovgapf4SGvhHECoryGreKf6874XYsyas";
 
 import '../css/styles.css';
 import '../css/MediaQuery.css'
@@ -9,6 +9,8 @@ const containerStyle = {
     width: '100%',
     height: '300px',
     borderRadius: '10px',
+    marginBottom: '100px',
+    
 };
 
 const center = {
@@ -18,7 +20,7 @@ const center = {
 
 const LocationAndMission: React.FC = () => {
     return (
-        <div className="location-mission-container">
+        <div className="location-mission-container" style={{marginBottom: '80px'}}>
             <div className="mission-statement">
                 <h2>Our Mission</h2>
                 <p>

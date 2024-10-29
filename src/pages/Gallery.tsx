@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';  // Import AOS styles
 import '../css/styles.css';
+import '../css/MediaQuery.css';
+import Footer from '../components/Footer';
+const API_END_POINT = "https://server-470044186658.us-central1.run.app";
 
 interface MediaData {
   image: string;
@@ -10,7 +13,7 @@ interface MediaData {
   __v: number;
 }
 
-const Gallery = () => {
+const Gallery: React.FC = () => {
   const [media, setMedia] = useState<MediaData[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -29,7 +32,7 @@ const Gallery = () => {
   useEffect(() => {
     const fetchMedia = async () => {
       try {
-        const response = await fetch('https://api-4k-1012991611421.us-central1.run.app/api/gallery'); // Replace with your backend API URL
+        const response = await fetch(`${API_END_POINT}/gallery`); // Replace with your backend API URL
         if (!response.ok) {
           throw new Error('Failed to fetch media');
         }
@@ -38,7 +41,8 @@ const Gallery = () => {
         setMedia(data);
         setLoading(false);
       } catch (err) {
-        setError(err.message);
+        
+        setError(`An error occured: ${err}`);
         setLoading(false);
       }
     };
@@ -122,7 +126,7 @@ const Gallery = () => {
 
       {/* Modal Viewer */}
       {selectedMedia && (
-        <div className="modal" onClick={closeModal}>
+        <div className="modal" onClick={closeModal} style={{marginBottom: '100px'}}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <span className="close-modal" onClick={closeModal}>&times;</span>
             {activeTab === 'images' ? (
@@ -133,6 +137,7 @@ const Gallery = () => {
           </div>
         </div>
       )}
+      <Footer />
     </>
   );
 };

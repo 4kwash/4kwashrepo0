@@ -5,6 +5,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '../css/styles.css';
 import '../css/MediaQuery.css';
+const API_END_POINT = "https://server-470044186658.us-central1.run.app";
 
 import { Pagination, Navigation } from 'swiper/modules';
 
@@ -19,15 +20,18 @@ interface ServiceData {
     video: string;
 }
 
+
+
 const ServiceCardSlider: React.FC = () => {
     const [data, setData] = useState<ServiceData[]>([]); // Removed the null option and kept it as an empty array by default
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
+  
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch('https://api-4k-1012991611421.us-central1.run.app/services');
+                const res = await fetch(`${API_END_POINT}/services`);
                 if (!res.ok) {
                     throw new Error('Failed to fetch services');
                 }
@@ -35,7 +39,8 @@ const ServiceCardSlider: React.FC = () => {
                 setData(serviceData || []); // If no data, keep an empty array
                 setLoading(false);
             } catch (err) {
-                setError('An error occurred while fetching services');
+                console.log(err)
+                setError(`The following error occured: ${error}`,);
                 setLoading(false);
             }
         };
@@ -54,6 +59,7 @@ const ServiceCardSlider: React.FC = () => {
                         slidesPerView={'auto'}
                         pagination={{ clickable: true }}
                         navigation={true}
+                       
                         breakpoints={{
                             640: { slidesPerView: 1 },
                             768: { slidesPerView: 2 },

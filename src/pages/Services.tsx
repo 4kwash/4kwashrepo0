@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FaAward } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';  // For navigation
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -9,6 +10,8 @@ import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 import Footer from "../components/Footer";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import tshirt from '../assets/tshirt.jpg';
+const API_END_POINT = "https://server-470044186658.us-central1.run.app";
 
 // Define service schema interface
 interface ServiceSchema {
@@ -36,7 +39,7 @@ const Service: React.FC = () => {
 
     const fetchServices = async () => {
       try {
-        const response = await fetch('https://api-4k-1012991611421.us-central1.run.app/services');
+        const response = await fetch(`${API_END_POINT}/services`);
         if (!response.ok) {
           throw new Error('Communication error');
         }
@@ -122,6 +125,15 @@ const Service: React.FC = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+        </div>
+        <div className="services-section2">
+          <div className="services-section-text">
+            <h1>We stand on quality <FaAward className="service-section-icon" /> </h1> 
+            <p>"At 4kWash, quality is our top priority. We believe that exceptional service begins with attention to detail, skilled technicians, and premium products that restore your vehicle's shine and protection. Our team is committed to delivering a tailored experience, ensuring that every wash, polish, and interior treatment meets the highest standards. From routine maintenance to specialty detailing, 4kWash combines expertise with a passion for excellence, leaving your car looking and feeling its best, every time."</p>
+          </div>
+          <div className="services-section-image-container" data-aos="fade-left">
+            <img src={tshirt} alt="" />
+          </div>
         </div>
       </div>
 
