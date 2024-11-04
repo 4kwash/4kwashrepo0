@@ -5,13 +5,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-import '../css/styles.css';
+
 import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
-import Footer from "../components/Footer";
+import Footer from "./Footer";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import tshirt from '../assets/tshirt.jpg';
-const API_END_POINT = "https://server-470044186658.us-central1.run.app";
+
+const API_END_POINT = import.meta.env.VITE_API_URL;
 
 // Define service schema interface
 interface ServiceSchema {
@@ -132,7 +132,7 @@ const Service: React.FC = () => {
             <p>"At 4kWash, quality is our top priority. We believe that exceptional service begins with attention to detail, skilled technicians, and premium products that restore your vehicle's shine and protection. Our team is committed to delivering a tailored experience, ensuring that every wash, polish, and interior treatment meets the highest standards. From routine maintenance to specialty detailing, 4kWash combines expertise with a passion for excellence, leaving your car looking and feeling its best, every time."</p>
           </div>
           <div className="services-section-image-container" data-aos="fade-left">
-            <img src={tshirt} alt="" />
+            
           </div>
         </div>
       </div>

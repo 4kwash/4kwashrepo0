@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import '../css/styles.css';
-import '../css/MediaQuery.css';
+
 
 const Footer: React.FC = () => {
     const [dateTime, setDateTime] = useState<string>(new Date().toLocaleString());

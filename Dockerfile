@@ -1,24 +1,28 @@
-# Stage 1: Build the React application
-FROM node:18 AS build
+# Stage 1: Build the Vite + React + TypeScript application
+FROM node:18-alpine AS builder
 
+# Set working directory
 WORKDIR /app
 
-COPY package*.json ./
+# Copy package files and install dependencies, including TypeScript
+COPY package.json package-lock.json ./
+RUN npm install && npm install typescript -g
 
-RUN npm install
-
-# Install TypeScript globally
-RUN npm install -g typescript
-
+# Copy all other files and build the application
 COPY . .
+RUN npm run build  # This runs `vite build`, creating a production build in `dist/`
 
-RUN npm run build
+# Stage 2: Serve with Nginx
+FROM nginx:latest
 
-# Stage 2: Serve the application with Nginx
-FROM nginx:alpine
+# Copy custom Nginx configuration file
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
-COPY --from=build /app/dist /usr/share/nginx/html
+# Copy built files from the builder stage
+COPY --from=builder /app/dist /usr/share/nginx/html
 
+# Expose port 80
 EXPOSE 80
 
+# Start Nginx in the foreground
 CMD ["nginx", "-g", "daemon off;"]

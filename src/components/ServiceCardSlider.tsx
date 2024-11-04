@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import '../css/styles.css';
-import '../css/MediaQuery.css';
+
+
 const API_END_POINT = "https://server-470044186658.us-central1.run.app";
 
 import { Pagination, Navigation } from 'swiper/modules';

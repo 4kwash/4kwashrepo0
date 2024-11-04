@@ -6,8 +6,8 @@ import AOS from "aos";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "aos/dist/aos.css";
-import ServiceCardSlider from "../components/ServiceCardSlider";
-import Footer from "../components/Footer";
+import ServiceCardSlider from "./ServiceCardSlider";
+import Footer from "./Footer";
 
 const PLACE_ID = "ChIJz0Ny1UDR1IkR7Ro3MbKD7uo"; // 4kwash business
 const API_KEY = "AIzaSyAovgapf4SGvhHECoryGreKf6874XYsyas";

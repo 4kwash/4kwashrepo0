@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';  // Import AOS styles
-import '../css/styles.css';
-import '../css/MediaQuery.css';
-import Footer from '../components/Footer';
+
+
+import Footer from './Footer';
 const API_END_POINT = "https://server-470044186658.us-central1.run.app";
 
 interface MediaData {

@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes, FaPhone } from 'react-icons/fa'; // Icons for hamburger menu
+import { FaBars, FaTimes, FaPhone, FaInstagram } from 'react-icons/fa'; // Icons for hamburger menu
 import { useNavigate } from 'react-router-dom';
-import '../css/styles.css';
-import '../css/MediaQuery.css';
 
-interface NavbarProps {
-    logo: string;  // Accepts a logo as a prop
-}
 
 // Custom hook to handle scrolling behavior
 const useScroll = () => {
@@ -27,7 +22,7 @@ const useScroll = () => {
     return scrolled;
 };
 
-const Navbar: React.FC<NavbarProps> = ({ logo }) => {
+const Navbar: React.FC = () => {
     const [menuActive, setMenuActive] = useState<boolean>(false);
     const scrolled = useScroll();
     const navigate = useNavigate();
@@ -45,35 +40,49 @@ const Navbar: React.FC<NavbarProps> = ({ logo }) => {
     };
 
     return (
-        <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-            {/* Logo */}
-            <div className="navbar-logo" onClick={() => navigate('/')}>
-                <img src={logo} alt="Logo" />
-            </div>
-            <div className="phone-number">
-                <FaPhone />
-                <p>416-671-9932</p>
-            </div>
-
+        <>
             {/* Hamburger Menu - Only visible on smaller screens */}
-            <div 
-                className="navbar-hamburger" 
-                onClick={toggleMenu} 
-                aria-label="Toggle menu" 
+            <div
+                className="navbar-hamburger"
+                onClick={toggleMenu}
+                aria-label="Toggle menu"
                 aria-expanded={menuActive}
             >
                 {menuActive ? <FaTimes size={24} /> : <FaBars size={24} />}
             </div>
 
-            {/* Navigation Links */}
-            <ul className={`navbar-links ${menuActive ? 'active' : ''}`}>
-                <li><a href="/" className="navbar-link" onClick={handleLinkClick}>Home</a></li>
-                <li><a href="/service" className="navbar-link" onClick={handleLinkClick}>Service</a></li>
-                <li><a href="/reviews" className="navbar-link" onClick={handleLinkClick}>Reviews</a></li>
-                <li><a href="/gallery" className="navbar-link" onClick={handleLinkClick}>Gallery</a></li>
-            </ul>
-        </nav>
+
+            <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+
+
+                <div className="navbar-logo-container" onClick={() => navigate('/')}>
+                    <h1><span>4K</span> Wash</h1>
+                </div>
+
+
+                <div className="icon">
+                    <FaPhone id='phone-icon' />
+                    <p id='phone-number'>416-671-9932</p>
+                </div>
+                <div className="icon">
+                    <FaInstagram id='instagram'/>
+                    <p><a href="#">racinkc</a></p>
+                </div>
+
+
+                {/* Navigation Links */}
+                <ul className={`navbar-links ${menuActive ? 'active' : ''}`}>
+                    <li><a href="/" className="navbar-link" onClick={handleLinkClick}>Home</a></li>
+                    <li><a href="/service" className="navbar-link" onClick={handleLinkClick}>Service</a></li>
+                    <li><a href="/reviews" className="navbar-link" onClick={handleLinkClick}>Reviews</a></li>
+                    <li><a href="/gallery" className="navbar-link" onClick={handleLinkClick}>Gallery</a></li>
+                </ul>
+
+
+            </nav>
+        </>
     );
 };
 
 export default Navbar;
+
